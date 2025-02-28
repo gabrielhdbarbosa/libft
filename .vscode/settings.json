@@ -1,0 +1,15 @@
+{
+	"files.associations": {
+		"stdio.h": "c",
+		"cstdlib": "c",
+		"array": "c",
+		"deque": "c",
+		"string": "c",
+		"unordered_map": "c",
+		"vector": "c",
+		"iterator": "c",
+		"string_view": "c",
+		"format": "c",
+		"span": "c"
+	}
+}
