@@ -30,7 +30,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (0);
 }
 
-
+/*
 //The memcmp() function compares the first n bytes (each interpreted as unsigned
 //char) of the memory areas s1 and s2. The memcmp() function returns an integer
 //less than, equal to, or greater than zero if the first n bytes of s1 is found,
@@ -42,20 +42,21 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 int main () {
    const char str[] = "42_common_core";
-   const char c1 = 'common';
-   char *r;
+   const char c1[] = "42_common_core";
+   const char c2[] = "42";
+   const char c3[] = "core";
+   int		r;
 
-   r = ft_memchr(str, c1, 4);
-   printf("A procura por %c e: %s\n", c1, r);
-   r = ft_memchr(str, c1, 2);
-   printf("A procura por %c e: %s\n", c1, r);
-
-   printf("Retorna > 0 se s1 for maior, < 0 se menor, ou 0 se igual (n): %d\n",
-	ft_memcmp("42_common_core", "42_common_core", 14));
-printf("Retorna > 0 se s1 for maior, < 0 se menor, ou 0 se igual (n): %d\n",
-	ft_memcmp("42_common_core", "42_common", 9));
-printf("Retorna > 0 se s1 for maior, < 0 se menor, ou 0 se igual (n): %d\n",
-	ft_memcmp("42_common_core", "common_core", 11));
+   r = ft_memcmp(str, c1, 14);
+   printf("Retorna > 0 se s1 for maior, < 0 se menor, ou 0 se igual (%s) e:
+   			%d\n", c1, r);
+   r = ft_memcmp(str, c2, 2);
+   printf("Retorna > 0 se s1 for maior, < 0 se menor, ou 0 se igual (%s) e:
+   			%d\n", c2, r);
+   r = ft_memcmp(str, c3, 1);
+   printf("Retorna > 0 se s1 for maior, < 0 se menor, ou 0 se igual (%s) e:
+   			%d\n", c3, r);
 
    return(0);
 }
+*/
