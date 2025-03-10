@@ -16,11 +16,15 @@ char	*ft_strdup(const char *s)
 {
 	char	*list;
 	int		i;
+	int		j;
 
 	i = 0;
+	j = 0;
 	if (!s)
 		return (NULL);
-	list = 	(char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	while (s[j])
+		j++;	
+	list = 	(char *)malloc(sizeof(char) * (j + 1));
 	if (!list)
 		return (NULL);
 	while (s[i])
