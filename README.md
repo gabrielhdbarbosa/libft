@@ -3,9 +3,7 @@
 
 ![libft_github_png](https://github.com/user-attachments/assets/2176414d-6560-4a5e-a346-849cbe7518ae)
 
-<div align="center">
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) 	![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) 	![Vim](https://img.shields.io/badge/VIM-%2311AB00.svg?style=for-the-badge&logo=vim&logoColor=white)
-</div>
 
 **Libft** is the first project of my programming track at [42 Porto](https://www.42porto.com). The main goal of this project is to rebuild my library of functions in C programming language, re-implementing my own versions of the standard `libc` with some aditional ones, which we deal with characters, strings, memory, convertion and allocation. Plus, we have the `bonus` part, where we are able to deal with linked lists.
 
