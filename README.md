@@ -33,16 +33,23 @@ This project was a great exercise to understand how the standard library in C pr
 # Functionalities
 
 ## Libc functions:
+
 - Characters manipulation: `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`.
+
 - String manipulation: `ft_strlen`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strnstr`, `ft_strlcpy`, `ft_strlcat`, `ft_strdup`.
+
 - Memory manipulation: `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`.
+
 - Conversion and allocation: `ft_atoi`, `ft_calloc`.
 
 ## Additional functions:
+
 - String manipulation: `ft_substr`, `ft_strjoin`, `ft_strtrim`, `ft_split`, `ft_itoa`, `ft_strmapi`, `ft_striteri`.
+
 - File descriptors: `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`.
 
 ## Bonuses:
+
 - Linked lists manipulation: `ft_lstnew`, `ft_lstadd_front`, `ft_lstsize`, `ft_lstlast`, `ft_lstadd_back`, `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`.
 
 ---
@@ -50,6 +57,7 @@ This project was a great exercise to understand how the standard library in C pr
 # Usability
 
 ## Compilation
+
 To compile the library you can use the `make` command in the terminal:
 
 ```Bash
@@ -59,6 +67,7 @@ make
 This will generate the `libft.a` file, which is the static library that has all the implemented functions.
 
 ## How to include in your project
+
 To use the **Libft** in your project, include the header `libft.h` and link it during compilation:
 
 ```C
@@ -74,6 +83,7 @@ cc -Wall -Wextra -Werror -c your_program.c -o your_program
 ---
 
 # Structure
+
 libft/\
 ├── Makefile\
 ├── libft.h\
@@ -127,6 +137,7 @@ libft/\
 ---
 
 # Installation
+
 1. Clone the repository:
 ```Bash
 git clone https://github.com/gabrielhdbarbosa/libft.git
@@ -150,9 +161,11 @@ make
 ---
 
 # Contact
+
 If you have any question or suggestion feel free to contact me!
 
 - E-mail: ghrb2811@gmail.com
+
 - LinkedIn: [gabrielhdb](https://www.linkedin.com/in/gabrielhdb/)
 
 ---
