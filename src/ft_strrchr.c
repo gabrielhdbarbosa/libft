@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/21 20:21:24 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/02/21 20:21:24 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/08 11:57:02 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/12 15:09:46 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	i = 0;
-	while (s[i])
-		i++;
-	while (i >= 0)
+	i = ft_strlen(s);
+	while (i > -1)
 	{
-		if (s[i] == (char)c)
+		if (s[i] == (unsigned char)c)
 			return ((char *)&s[i]);
 		--i;
 	}
@@ -35,7 +33,6 @@ char	*ft_strrchr(const char *s, int c)
 //part of the string, so that if c is specified as '\0', these functions return
 //a pointer to the terminator.
 #include <stdio.h>
-
 int	main()
 {
 	printf("Retorna o char em \"reverse\": %s\n",

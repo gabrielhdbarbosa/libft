@@ -5,36 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 12:00:54 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/03/05 12:00:54 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/10 10:54:56 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/11 17:48:22 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	ft_istrim(char c, const char *set)
+{
+	while (*set)
+		if (*set++ == c)
+			return (1);
+	return (0);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*trimmed;
+	char	*dest;
 	int		i;
-	int		j;
-	int		k;
+	int		start;
+	int		end;
 
-	if (!s1 || !set)
-		return (NULL);
+	start = 0;
+	end = ft_strlen(s1) - 1;
+	while (s1[start] && ft_istrim(s1[start], set))
+		start++;
+	while (end >= start && ft_istrim(s1[end], set))
+		end--;
+	dest = ft_calloc((end - start + 2), sizeof(char));
+	if (!dest)
+		return (0);
 	i = 0;
-	j = (ft_strlen(s1) - 1);
-	while (*(s1 + i) && ft_strchr(set, *(s1 + i)))
-		i++;
-	while ((j > i) && ft_strchr(set, *(s1 + j)))
-		j--;
-	trimmed = (char *)malloc(sizeof(char) * (j - i + 1));
-	if (!trimmed)
-		return (NULL);
-	k = 0;
-	while (i <= j)
-		trimmed[k++] = s1[i++];
-	trimmed[k] = '\0';
-	return (trimmed);
+	while (start <= end)
+		dest[i++] = s1[start++];
+	return (dest);
 }
 
 /*
@@ -44,8 +49,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 int	main()
 {
-	char 	*s1 = "__42_common_core__";
-	char 	*set = "_";
+	char 	*s1 = "*__*####42_*#common#*_core####*__*";
+	char 	*set = "_#*";
 	char 	*s;
 
 	s = ft_strtrim(s1, set);

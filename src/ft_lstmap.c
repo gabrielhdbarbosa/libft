@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 19:41:14 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/03/10 19:41:14 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/11 15:05:24 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/12 13:43:05 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,19 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_list;
 	t_list	*new_node;
+	void	*content;
 
-	if (!lst)
-		return (NULL);
-	new_list = NULL;
+	new_list = 0;
 	while (lst)
 	{
-		if (f)
-			new_node = ft_lstnew(f(lst->content));
-		else
-			new_node = ft_lstnew(lst->content);
+		content = f(lst->content);
+		new_node = ft_lstnew(content);
 		if (!new_node)
 		{
+			del(content);
+			free(new_node);
 			ft_lstclear(&new_list, del);
-			return (NULL);
+			return (0);
 		}
 		ft_lstadd_back(&new_list, new_node);
 		lst = lst->next;

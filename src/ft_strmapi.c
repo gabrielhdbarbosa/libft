@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/09 14:54:56 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/03/09 14:54:56 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/10 19:01:23 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/11 09:56:54 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,63 +14,45 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*pointer;
-	unsigned int	i;
+	int		i;
+	char	*dest;
 
-	if (!s || !f)
-		return (NULL);
-	i = 0;
-	while (s[i])
-		i++;
-	pointer = (char *)malloc(sizeof(char) * (i + 1));
-	if (!pointer)
-		return (NULL);
+	i = ft_strlen(s);
+	dest = ft_calloc((i + 1), sizeof(char));
+	if (!dest)
+		return (0);
 	i = 0;
 	while (s[i])
 	{
-		pointer[i] = f(i, s[i]);
+		dest[i] = f(i, s[i]);
 		i++;
 	}
-	pointer[i] = '\0';
-	return (pointer);
+	dest[i] = '\0';
+	return (dest);
 }
 
 /*
 //Applies the function f to each character of the string s passing its index as
 //the first argument and the character itself as the second. A new string is
 //created (malloc) to collect the results from the successive applications of f
-char	ft_capitalize_char(unsigned int i, char c)
+#include <stdio.h>
+static char	ft_maximize(unsigned int i, char c)
 {
-	static int start_word = 1;
-
 	(void)i;
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	if (start_word && c >= 'a' && c <= 'z')
+	if (c > 96 && c < 123)
 		c -= 32;
-	start_word = !(c >= 'a' && c <= 'z') &&
-				 !(c >= 'A' && c <= 'Z') &&
-				 !(c >= '0' && c <= '9');
 	return (c);
 }
-
-#include <stdio.h>
 
 int	main(void)
 {
 	char *s = "42_common_core";
 	char *capitalized;
 
-	capitalized = ft_strmapi(s, ft_capitalize_char);
-	if (capitalized)
-	{
-		printf("Original: %s\n", s);
-		printf("Capitalized: %s\n", capitalized);
-		free(capitalized);
-	}
-	else
-		printf("Erro ao alocar memória!\n");
-
+	capitalized = ft_strmapi(s, ft_maximize);
+	printf("Original: %s\n", s);
+	printf("Capitalized: %s\n", capitalized);
+	free(capitalized);
 	return (0);
 }
 */

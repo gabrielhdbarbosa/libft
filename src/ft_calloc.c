@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 15:15:19 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/03/01 15:15:19 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/09 12:50:45 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/12 15:31:45 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,14 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void			*temp;
-	unsigned char	*ptr;
-	size_t			n;
+	void	*tmp;
 
-    if (nmemb == 0 || size == 0 || nmemb > SIZE_MAX / size)
-        return (NULL);
-
-	temp = (void *)malloc(nmemb * size);
-
-	if (!temp)
-		return (NULL);
-	
-	ptr = (unsigned char *)temp;
-	n = nmemb * size;
-	while (n > 0)
-	{
-		ptr[n - 1] = 0;
-		n--;
-	}
-	return (temp);
+	if (size != 0 && nmemb > SIZE_MAX / size)
+		return (0);
+	tmp = malloc(nmemb * size);
+	if (tmp)
+		ft_bzero(tmp, (nmemb * size));
+	return (tmp);
 }
 
 /*
@@ -45,8 +33,4 @@ void	*ft_calloc(size_t nmemb, size_t size)
 //By contrast, an integer overflow would not be detected in the following call
 //to malloc(), with the result that an incorrectly sized block of memory would
 //be allocated: malloc(nmemb * size);
-#include <stdio.h>
-
-int	main()
-{}
 */

@@ -5,51 +5,55 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/05 12:52:15 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/03/05 12:52:15 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/10 18:23:18 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/14 11:02:13 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_len(long int n)
+static int	ft_len(long n)
 {
-	size_t	count;
+	int	count;
 
 	count = 0;
 	if (n <= 0)
-		count++;
-	while (n)
 	{
 		count++;
+		n *= -1;
+	}
+	while (n != 0)
+	{
 		n /= 10;
+		count++;
 	}
 	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		len;
+	char		*dest;
+	int			i;
+	long int	nb;
 
-	len = ft_len(n);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	str[len] = '\0';
-	if (n == 0)
-		str[0] = '0';
-	else if (n < 0)
-		str[0] = '-';
-	while (n)
+	nb = n;
+	i = ft_len(nb);
+	dest = ft_calloc((i + 1), sizeof(char));
+	if (!dest)
+		return (0);
+	if (nb == 0)
+		dest[0] = '0';
+	if (nb < 0)
 	{
-		if (n < 0)
-			str[--len] = (~(n % 10) + 1) + '0';
-		else
-			str[--len] = (n % 10) + '0';
-		n /= 10;
+		dest[0] = '-';
+		nb *= -1;
 	}
-	return (str);
+	while (nb != 0)
+	{
+		dest[--i] = (nb % 10) + '0';
+		nb /= 10;
+	}
+	return (dest);
 }
 
 /*
@@ -66,7 +70,7 @@ int	main()
 	while (i < 5)
 	{
 		s = ft_itoa(test[i]);
-		printf("ft_itoa(%d) -> \"%s\"\n", test[i], s);
+		printf("ft_itoa(%d) becomes: \"%s\"\n", test[i], s);
 		free(s);
 		i++;
 	}

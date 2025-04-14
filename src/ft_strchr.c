@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/19 19:13:43 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/02/19 19:13:43 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/08 11:46:57 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/12 12:32:16 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ char	*ft_strchr(const char *s, int c)
 {
 	while (*s)
 	{
-		if (*s == (char)c)
+		if (*s == (unsigned char)c)
 			return ((char *)s);
 		s++;
 	}
-	if ((char)c == '\0')
+	if ((unsigned char)c == '\0')
 		return ((char *)s);
-	return (NULL);
+	return (0);
 }
 
 /*
@@ -32,18 +32,17 @@ char	*ft_strchr(const char *s, int c)
 //part of the string so that if c is specified as '\0', these functions return a
 //pointer to the terminator
 #include <stdio.h>
-
 int	main()
 {
-	printf("Retorna 1 se for houver o char na str: %s\n",
+	printf("Retorna o ponteiro caso encontrado o char: %s\n",
 			ft_strchr("42_common_core", 'e'));
-	printf("Retorna 1 se for houver o char na str: %s\n",
+	printf("Retorna o ponteiro caso encontrado o char: %s\n",
 			ft_strchr("42_common_core", 'f'));
-	printf("Retorna 1 se for houver o char na str: %s\n",
+	printf("Retorna o ponteiro caso encontrado o char: %s\n",
 			ft_strchr("42_common_core", '_'));
-	printf("Retorna 1 se for houver o char na str: %s\n",
+	printf("Retorna o ponteiro caso encontrado o char: %s\n",
 			ft_strchr("42_common_core", ' '));
-	printf("Retorna 1 se for houver o char na str: %s\n",
+	printf("Retorna o ponteiro caso encontrado o char: %s\n",
 			ft_strchr("42_common_core", '\0'));
 	return (0);
 }

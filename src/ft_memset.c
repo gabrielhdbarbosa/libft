@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 14:35:16 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:35:16 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/08 19:30:42 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/12 15:02:57 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,9 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	*p;
-
-	p = (unsigned char *)s;
-
 	while (n > 0)
 	{
-		p [n - 1] = (unsigned char)c;
+		((unsigned char *)s)[n - 1] = (unsigned char)c;
 		n--;
 	}
 	return (s);

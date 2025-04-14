@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 14:34:16 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:34:16 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/09 11:57:31 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/09 19:32:11 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,13 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
-
-	if (!dest && !src)
-		return (NULL);
-
 	if (dest > src)
 	{
-		i = n;
-		while (i-- > 0)
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		while (n-- > 0)
+			((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
 	}
 	else
-	{
-		i = 0;
-		while (i < n)
-		{
-			((unsigned char *)dest)[i] = ((const unsigned char *)src)[i];
-			i++;
-		}
-	}
+		ft_memcpy(dest, src, n);
 	return (dest);
 }
 

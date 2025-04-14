@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/21 21:06:29 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/02/21 21:06:29 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/08 14:44:45 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/09 15:51:28 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,13 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t			i;
+	size_t	i;
 
-	unsigned char	*str;
-
-	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
+	i = -1;
+	while (++i < n)
 	{
-		if (str[i] == (unsigned char)c)
-			return ((void *)(str + i));
-		i++;
+		if (((unsigned char *)s)[i] == (unsigned char)c)
+			return ((void *)&((unsigned char *)s)[i]);
 	}
 	return (0);
 }
@@ -36,7 +32,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 //return a pointer to the matching byte or NULL if the character does not occur
 //in the given memory area.
 #include <stdio.h>
-
 int main () {
    const char str[] = "42_common_core";
    const char c1 = 'c';

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 19:33:40 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/03/10 19:33:40 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/11 14:52:23 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/11 18:13:38 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list	*current;
 	t_list	*tmp;
 
-	if (!lst || !del)
-		return;
-	current = *lst;
-	while (current)
+	while (*lst)
 	{
-		tmp = current;
-		current = current->next;
-		ft_lstdelone(tmp, del);
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-	*lst = NULL;
+	*lst = 0;
+	return ;
 }
 
 //Deletes and frees the given node and every successor of that node, using the

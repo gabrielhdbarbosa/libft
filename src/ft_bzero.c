@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/01 14:54:26 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:54:26 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/08 19:41:55 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/09 18:55:32 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,8 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*p;
-
-	p = (unsigned char *)s;
-
-	while (n > 0)
-	{
-		p [n - 1] = 0;
-		n--;
-	}
+	ft_memset(s, 0, n);
+	return ;
 }
 
 /*
@@ -39,6 +32,7 @@ int main ()
 	while (c1[i])
 		i++;
 
+// test with 2 chars
 	ft_bzero(c1, 2);
 	for (int j = 0; j < i; j++)
     {
@@ -46,6 +40,7 @@ int main ()
 	}
 	printf("%c", '\n');
 
+// test with 4 chars
 	ft_bzero(c1, 4);
 	for (int j = 0; j < i; j++)
     {

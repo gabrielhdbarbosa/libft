@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/18 17:28:37 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/02/18 17:28:37 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/07 13:55:44 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/07 13:58:11 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
+	if (c > 64 && c < 91)
 		return (c + 32);
-	else
-		return (c);
+	return (c);
 }
 
 /*
@@ -27,10 +26,10 @@ int	ft_tolower(int c)
 
 int	main()
 {
-	printf("A letra A se torna: %d\n", ft_tolower('A'));
-	printf("A letra Z se torna: %d\n", ft_tolower('Z'));
-	printf("A letra a se torna: %d\n", ft_tolower('a'));
-	printf("A letra z se torna: %d\n", ft_tolower('z'));
+	printf("A letra A se torna: %c\n", ft_tolower('A'));
+	printf("A letra Z se torna: %c\n", ft_tolower('Z'));
+	printf("A letra a se torna: %c\n", ft_tolower('a'));
+	printf("A letra z se torna: %c\n", ft_tolower('z'));
 	return (0);
 }
 */

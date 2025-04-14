@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 20:37:14 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/02/17 20:37:14 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/07 12:19:20 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/12 11:24:54 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
@@ -27,13 +27,12 @@ int	ft_strlen(const char *str)
 //excluding the terminating null byte ('\0'). The strlen() function returns the
 //number of bytes in the string pointed to by s.
 #include <stdio.h>
-
 int	main()
 {
 	printf("O tamanho da string \"42_common_core\" e: %d.\n", 
 			ft_strlen("42_common_core"));
 	printf("O tamanho da string \"S2 cafe com bolo\" e: %d.\n", 
-			ft_strlen("S2 cafe com bolo"));
+			ft_strlen("bolo"));
 	return (0);
 }
 */

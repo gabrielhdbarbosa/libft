@@ -5,29 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/19 23:08:25 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/02/19 23:08:25 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/07 15:05:39 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/12 13:38:17 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *restrict src, size_t dsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;
 	size_t	k;
 
-	i = 0;
-	j = 0;
+	i = ft_strlen(dst);
+	j = ft_strlen(src);
+	if (i >= size)
+		return (size + j);
 	k = 0;
-	while (i < dsize && dst[i])
-		i++;
-	while (src[j])
-		j++;
-	if (i >= dsize)
-		return (dsize + j);
-	while (src[k] && (i + k + 1) < dsize)
+	while (src[k] && (i + k + 1) < size)
 	{
 		dst[i + k] = src[k];
 		k++;
@@ -49,8 +45,8 @@ int main ()
 	const char	s[15] = "42_common_core";
 	char	dest[30] = "lets go: ";
 
-	len = ft_strlcat(dest, s, 23);
-	printf("%lld\n", len);
+	len = ft_strlcat(dest, s, 24);
+	printf("%ld\n", len);
 	printf("%s\n", dest);
 }
 */

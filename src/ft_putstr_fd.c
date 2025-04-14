@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 14:09:50 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/03/10 14:09:50 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/11 09:57:24 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/11 18:50:18 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (!s)
-		return;
-	while(*s)
-		write(fd, s++, 1);
+	while (*s)
+		ft_putchar_fd(*s++, fd);
+	return ;
 }
 
 /*

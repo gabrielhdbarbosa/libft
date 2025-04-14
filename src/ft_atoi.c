@@ -5,34 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 15:56:07 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/02/17 20:30:27 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/07 17:58:02 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/07 18:43:55 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *nptr)
 {
-    int n;
-    int result;
+	int	n;
+	int	result;
 
-    n = 1;
-    result = 0;
-    while (*str == ' ' || (*str >= 9 && *str <= 13))
-        str++;
-    if (*str == '-' || *str == '+')
-    {
-        if (*str == '-')
-            n *= -1;
-        str++;
-    }
-    while (*str >= '0' && *str <= '9')
-    {
-        result = result * 10 + (*str - '0');
-        str++;
-    }
-    return (n * result);
+	n = 1;
+	result = 0;
+	while (*nptr == ' ' || (*nptr > 8 && *nptr < 14))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
+	{
+		if (*nptr == '-')
+			n *= -1;
+		nptr++;
+	}
+	while (*nptr > 47 && *nptr < 58)
+	{
+		result = result * 10 + (*nptr - 48);
+		nptr++;
+	}
+	return (n * result);
 }
 
 /*
@@ -43,11 +43,11 @@ int ft_atoi(const char *str)
 
 int	main()
 {
-	const char *c = "     -4242";
+	const char *c = "      -455";
 	int				s;
 
 	s = ft_atoi(c);
 	printf("%d\n", s);
-
+	return (0);
 }
 */

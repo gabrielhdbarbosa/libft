@@ -5,104 +5,101 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 23:17:35 by ghenriqu          #+#    #+#             */
-/*   Updated: 2025/03/03 23:17:35 by ghenriqu         ###   ########.fr       */
+/*   Created: 2025/04/10 16:44:41 by ghenriqu          #+#    #+#             */
+/*   Updated: 2025/04/12 11:44:34 by ghenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(const char *s, char c)
+static int	ft_words(const char *str, char c)
 {
-	int	count = 0;
-	int	in_word = 0;
+	int	count;
+	int	trigger;
 
-	while (*s)
+	count = 0;
+	trigger = 0;
+	while (*str)
 	{
-		if (*s != c && !in_word)
+		if (*str != c && !trigger)
 		{
-			in_word = 1;
+			trigger = 1;
 			count++;
 		}
-		else if (*s == c)
-			in_word = 0;
-		s++;
+		else if (*str == c)
+			trigger = 0;
+		str++;
 	}
 	return (count);
 }
 
-static char	*worddup(const char *s, char c)
+char	*ft_strdup_mod(const char *s, char c)
 {
-	int		i;
-	int		j;
-	char	*word;
+	int		size;
+	char	*d;
 
-	i = 0;
-	j = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	word = (char *)malloc(sizeof(char) * (i + 1));
-	if (!word)
-		return (NULL);
-	while (j < i)
-	{
-		word[j] = s[j];
-		j++;
-	}
-	word[i] = '\0';
-	return (word);
+	size = 0;
+	while (s[size] && s[size] != c)
+		size++;
+	d = ft_calloc((size + 1), (sizeof(char)));
+	if (!d)
+		return (0);
+	ft_strlcpy(d, s, (size + 1));
+	return (d);
 }
 
-static void	ft_free(char **arr, int i)
+static void	ft_free(char **array, int i)
 {
 	while (i >= 0)
-		free(arr[i--]);
-	free(arr);
+		free(array[i--]);
+	free(array);
+	return ;
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	words;
 	char	**result;
 	int		i;
 
-	i = 0;
-	words = 0;
-	words = count_words(s, c);
-	result = (char **)malloc(sizeof(char *) * (words + 1));
-	if (!s || !result)
-		return (NULL);
+	i = -1;
+	result = ft_calloc((ft_words(s, c) + 1), sizeof(char *));
+	if (!result)
+		return (0);
 	while (*s)
 	{
 		if (*s != c)
 		{
-			result[i] = worddup(s, c);
+			result[++i] = ft_strdup_mod(s, c);
 			if (!result[i])
 			{
 				ft_free(result, i - 1);
-				return (NULL);
+				return (0);
 			}
-			i++;
 			while (*s && *s != c)
 				s++;
 		}
 		else
 			s++;
 	}
-	result[i] = NULL;
+	result[i + 1] = 0;
 	return (result);
 }
 
+/*
+//The split function is the hardest one in this list, that's why I wrote down
+//an explanation below. I wanted to make sure that I fixed the concepts and the
+//logic before coding it and avoid future misconcepts.
+//
 //Allocates (with malloc) and returns an array of strings obtained by splitting
 //’s’ using the char c as a delimiter. The array must end with a NULL pointer.
-//Here we have to create four functions:
-//	- count_words: we will define how many words (tokens) we'll have;
-//	- strdup: we'll allocate the right amount of memory needed (malloc);
-//	- free: liberate the functions that didn't work properly;
-//	- strlcpy: copy the string with the '\0' terminator.
-/*
+//
+//Here we have to call four functions:
+//	- ft_words: we will define how many words (tokens) we'll have;
+//	- ft_strdup: we'll allocate the right amount of memory needed (malloc);
+//	- ft_free: liberate the functions that didn't work properly;
+//	- ft_split: the function that will return the array of strings organized
+//
 #include <stdio.h>
-
 int	main()
 {
 	char	*s1 = "___42_common_core!";
