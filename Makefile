@@ -6,7 +6,7 @@
 #    By: ghenriqu <ghenriqu@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/12 12:46:50 by ghenriqu          #+#    #+#              #
-#    Updated: 2025/04/12 12:46:53 by ghenriqu         ###   ########.fr        #
+#    Updated: 2025/04/17 19:05:41 by ghenriqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,22 +75,24 @@ all: $(NAME)
 
 # compile and create the lib:
 $(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 # compile .o:
 %.o: %.c libft.h
-	@$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 # clean files:
 clean:
-	@$(RM) $(OBJ) $(OBJB)
+	$(RM) $(OBJ) $(OBJB)
 
 # clean everything, .o and libft.a:
 fclean: clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 # recompile all:
 re: fclean all
 
-bonus: $(OBJ) $(OBJB)
-	@ar rcs $(NAME) $(OBJ) $(OBJB)
+bonus: $(OBJB)
+	@make OBJ="$(OBJB)" all
+
+.PHONY: all re clean fclean
