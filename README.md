@@ -11,6 +11,10 @@
 
 ---
 
+*As a student, always be curious. Curiosity is essential in every field, and tech is no exception. Don't just follow guidelines and expect to understand things deeply! Experiment, fail, try again, fail once more, and then, you will learn something new. This guide will be another tool in your studies, but remember, the key is to stay curious!*
+
+---
+
 # Content
 
 - [Summary](#Summary)
